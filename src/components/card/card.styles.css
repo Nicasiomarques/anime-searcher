@@ -1,0 +1,27 @@
+.card {
+  border-radius: 8px;
+  cursor: pointer;
+  transition: ease all 200ms;
+  width: fit-content;
+  background-color: transparent;
+  color: var(--font-color);
+}
+
+.card:hover {
+  transform: scale(1.03);
+  color: var(--primary-color);
+}
+
+.card__img {
+  position: relative;
+  border-radius: 10px;
+  box-shadow: var(--card-box-shadow);
+  transition: ease all 200ms;
+  filter: brightness(80%);
+  margin-bottom: .5rem;
+}
+
+.card:hover .card__img {
+  filter: initial;
+  box-shadow: 0 16px 30px rgba(92, 114, 138, 0.16);
+}

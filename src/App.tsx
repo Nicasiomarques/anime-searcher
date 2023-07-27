@@ -1,8 +1,5 @@
-import { SearchInput } from './components/input-field/search-input';
-import { ListAsGrid } from './components/section-cards';
-import { PaginationWrapper } from './components/pagination/pagination-wrapper';
+import { SearchInput, ListAsGrid, PaginationWrapper } from './components';
 import { useAnimePagination } from './hooks/use-animes';
-import './App.css'
 
 export default function App() {
   const {

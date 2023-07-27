@@ -1,4 +1,5 @@
 import { HTMLProps } from "react"
+import './input-field.styles.css'
 
 export type InputFieldProps = HTMLProps<HTMLInputElement> & { label?: string }
 

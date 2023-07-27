@@ -1,4 +1,5 @@
 import { Card } from "../card"
+import './section-cards.style.css'
 
 type AnimeItem = {
   id: string,

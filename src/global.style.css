@@ -1,0 +1,24 @@
+/* Reset styles */
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-foreground: rgb(237, 241, 245);
+  --font-color: rgb(92, 114, 138);
+  --primary-color: rgb(188, 78, 0);
+  --card-box-shadow: 0 8px 22px rgba(92, 114, 138, 0.12);
+}
+
+body {
+  max-width: 1200px;
+  width: 95%;
+  margin: 2rem auto;
+  background-color: var(--color-foreground);
+  font-family: sans-serif;
+  color: var(--font-color);
+}

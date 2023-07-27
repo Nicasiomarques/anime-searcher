@@ -1,0 +1,26 @@
+/* Input styles */
+.input-field__label {
+  color: var(--font-color);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-field {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  width: 100%;
+  border: none;
+  box-shadow: var(--card-box-shadow);
+}
+
+.input-field::placeholder {
+  color: var(--font-color);
+}

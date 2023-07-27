@@ -1,5 +1,6 @@
 import { PaginationWrapperProps } from "./pagination.type";
 import { Pagination } from "./pagination";
+import './pagination.styles.css'
 
 export const PaginationWrapper = ({
   total,
