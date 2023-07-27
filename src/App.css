@@ -1,0 +1,150 @@
+/* Reset styles */
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-foreground: rgb(237, 241, 245);
+  --font-color: rgb(92, 114, 138);
+  --primary-color: rgb(188, 78, 0);
+  --card-box-shadow: 0 8px 22px rgba(92, 114, 138, 0.12);
+}
+
+body {
+  max-width: 1200px;
+  width: 95%;
+  margin: 2rem auto;
+  background-color: var(--color-foreground);
+  font-family: sans-serif;
+  color: var(--font-color);
+}
+
+/* Input styles */
+.input-field__label {
+  color: var(--font-color);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-field {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  width: 100%;
+  border: none;
+  box-shadow: var(--card-box-shadow);
+}
+
+.input-field::placeholder {
+  color: var(--font-color);
+}
+
+/* Section cards styles */
+.section-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.card {
+  border-radius: 8px;
+  cursor: pointer;
+  transition: ease all 200ms;
+  width: fit-content;
+  background-color: transparent;
+  color: var(--font-color);
+}
+
+.card:hover {
+  transform: scale(1.03);
+  color: var(--primary-color);
+}
+
+.card__img {
+  position: relative;
+  border-radius: 10px;
+  box-shadow: var(--card-box-shadow);
+  transition: ease all 200ms;
+}
+
+.card:hover .card__img {
+  filter: brightness(25%);
+  box-shadow: 0 16px 30px rgba(92, 114, 138, 0.16);
+}
+
+.card:hover .card__details {
+  visibility: visible;
+}
+
+.card__details {
+  position: absolute;
+  left: 10px;
+  bottom: 30px;
+  padding: 0.6rem 0;
+  color: #fff;
+  visibility: hidden;
+  transition: ease all 300ms;
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  list-style: none;
+  margin: 2rem 0;
+}
+
+.pagination__item--active {
+  background-color: rgba(92, 17, 255, 0.8) !important;
+  color: #fff !important;
+}
+
+.pagination__item {
+  border: 2px solid transparent;
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-foreground);
+  align-items: center;
+  cursor: pointer;
+  transition: all ease-in-out 250ms;
+}
+
+.pagination__item:hover {
+  border-color: rgba(92, 17, 255, 0.8);
+  color: rgba(92, 17, 255, 0.8);
+  background-color: var(--color-foreground);
+}
+
+.pagination__indicator {
+  border: none;
+  font-weight: 900;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 1rem;
+  font-family: Georgia;
+  background-color: var(--color-foreground);
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
