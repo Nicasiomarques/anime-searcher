@@ -21,6 +21,7 @@ const mapToCardProps = (response: Partial<PaginationData>): AnimeItem[] => {
   }))
   return mappedCards ?? []
 }
+
 const sortByAttr = (
   animeList: AnimeItem[],
   attr: keyof AnimeItem,
@@ -45,15 +46,13 @@ const sortByAttr = (
   });
 };
 
-
-
 export const useAnimePagination = (baseURL = BASE_URL) => {
   const [text, setText] = useState("");
   const { data, isLoading, fetchData } = usePagination(`${baseURL}anime`);
   const [offset, setOffset] = useState(0);
   const [filteredData, setFilteredData] = useState<AnimeItem[]>([])
   const [sort, setSort] = useState({
-    attr: '',
+    attr: 'title',
     ascending: true
   })
   
