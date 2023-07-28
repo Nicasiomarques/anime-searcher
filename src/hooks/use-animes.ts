@@ -63,6 +63,7 @@ export const useAnimePagination = (baseURL = BASE_URL) => {
         console.error(error);
         alert(error.message);
       })
+      setFilteredData([])
   }, [text, offset]);
 
   const sortBy = (attr: keyof AnimeItem, ascending: boolean) => {
