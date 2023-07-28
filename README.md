@@ -1,5 +1,8 @@
 ## Anime Searcher
 
+![Texto Alternativo](https://github.com/Nicasiomarques/anime-searcher/blob/main/preview.png)
+
+
 Este projeto consiste em uma tela que exibe uma lista ou tabela de dados paginada em ReactJS. Os dados são carregados sob demanda, exibindo inicialmente os 25 primeiros registros e permitindo que o usuário navegue pelas páginas para visualizar os registros adicionais.
 
 ## Requisitos
