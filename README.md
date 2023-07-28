@@ -5,6 +5,10 @@
 
 Este projeto consiste em uma tela que exibe uma lista ou tabela de dados paginada em ReactJS. Os dados são carregados sob demanda, exibindo inicialmente os 25 primeiros registros e permitindo que o usuário navegue pelas páginas para visualizar os registros adicionais.
 
+## Acesso Online
+
+O projeto está disponível online para visualização. Acesse [aqui](https://anime-searcher-eta.vercel.app) para experimentar a aplicação.
+
 ## Requisitos
 
 1. A tela deve exibir uma lista/tabela de dados paginada.
