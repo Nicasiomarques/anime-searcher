@@ -10,7 +10,7 @@ type SearchInputProps = Omit<InputFieldProps, 'onChange'> & {
 
 export const SearchInput: React.FC<SearchInputProps> = ({ value, onChange, ...rest }) => {
   const [displayValue, setDisplayValue] = useState<string>(value);
-  const debouncedChange = useDebounce((value) => onChange(value), 500);
+  const debouncedChange = useDebounce((value) => onChange(value), 700);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const newValue = event.target.value;
