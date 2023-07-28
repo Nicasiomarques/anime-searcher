@@ -3,22 +3,27 @@ import { usePagination } from "./use-pagination";
 import { PaginationData } from "../types/animes-response-shape";
 import { BASE_URL } from "../constans/enviroment";
 
+const mapToCardProps = (response: Partial<PaginationData>) => {
+  const mappedCards = response.data?.map(card => ({
+    id: card.id,
+    thumb: card.attributes.posterImage.small,
+    title: card.attributes.canonicalTitle
+  }))
+  return mappedCards ?? []
+}
+
 export const useAnimePagination = (baseURL = BASE_URL) => {
   const [text, setText] = useState("");
   const { data, isLoading, fetchData } = usePagination(`${baseURL}anime`);
   const [offset, setOffset] = useState(0);
 
-  const mapToCardProps = (response: Partial<PaginationData>) => {
-    const mappedCards = response.data?.map(card => ({
-      id: card.id,
-      thumb: card.attributes.posterImage.small,
-      title: card.attributes.canonicalTitle
-    }))
-    return mappedCards ?? []
-  }
-
   useEffect(() => {
-    fetchData(text, offset);
+    fetchData(text, offset)
+      .catch(error => {
+        // handle adding custom error to cover more scenarios
+        console.error(error);
+        alert(error.message);
+      })
   }, [text, offset]);
 
   return {
