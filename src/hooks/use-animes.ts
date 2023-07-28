@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { usePagination } from "./use-pagination";
 import { PaginationData } from "../types/animes-response-shape";
+import { BASE_URL } from "../constans/enviroment";
 
-export const useAnimePagination = (baseURL = "https://kitsu.io/api/edge/") => {
+export const useAnimePagination = (baseURL = BASE_URL) => {
   const [text, setText] = useState("");
   const { data, isLoading, fetchData } = usePagination(`${baseURL}anime`);
   const [offset, setOffset] = useState(0);

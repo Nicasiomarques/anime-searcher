@@ -9,7 +9,6 @@
 
 .card:hover {
   transform: scale(1.03);
-  color: var(--primary-color);
 }
 
 .card__img {
@@ -19,6 +18,12 @@
   transition: ease all 200ms;
   filter: brightness(80%);
   margin-bottom: .5rem;
+}
+
+.card__title {
+  font-size: .92rem;
+  color: var(--primary-color);
+  text-overflow: ellipsis;
 }
 
 .card:hover .card__img {
