@@ -24,13 +24,13 @@ Para executar este projeto localmente, siga os passos abaixo:
 2. Clone este repositório para o seu computador:
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/Nicasiomarques/anime-searcher.git
 ```
 
 3. Acesse o diretório do projeto:
 
 ```bash
-cd nome-do-repositorio
+cd anime-searcher
 ```
 
 4. Instale as dependências do projeto:
@@ -44,7 +44,7 @@ npm install
 Após a conclusão da configuração do ambiente, você pode executar o projeto localmente usando o seguinte comando:
 
 ```bash
-npm start
+npm dev
 ```
 
 Isso iniciará o servidor de desenvolvimento e abrirá a aplicação em seu navegador padrão. Se a porta 3000 estiver ocupada, o servidor tentará usar outra porta disponível.
