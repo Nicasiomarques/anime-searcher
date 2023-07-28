@@ -75,6 +75,9 @@ Agora você poderá interagir com a tela de listagem paginada e testar as funcio
 
 9. **Debounce Search (Pesquisa com Debounce):** Implementação do conceito de "debounce" na funcionalidade de busca para melhorar a experiência do usuário durante a pesquisa de dados, reduzindo o número de chamadas à API e proporcionando uma busca mais fluida e eficiente.
 
+10. **Integração Contínua e Entrega Contínua (CI/CD):** Implementação de práticas de Integração Contínua e Entrega Contínua para elevar a qualidade do projeto e agilizar o processo de desenvolvimento.
+
+
 ## Possíveis Melhorias (Não Implementadas)
 
 Embora o projeto já tenha sido desenvolvido com diversos diferenciais e técnicas de otimização, há sempre espaço para melhorias adicionais. Algumas sugestões de possíveis melhorias que não foram implementadas no escopo atual do projeto incluem:
@@ -94,8 +97,6 @@ Embora o projeto já tenha sido desenvolvido com diversos diferenciais e técnic
 7. **SOLID:** Implementação de princípios SOLID de design de software para aumentar a longevidade e extensibilidade do aplicativo.
 
 8. **Desacoplamento:** Práticas de desacoplamento e injeção de dependências para criar uma aplicação mais flexível e adaptável a mudanças tecnológicas.
-
-9. **Integração Contínua e Entrega Contínua (CI/CD):** Implementação de práticas de Integração Contínua e Entrega Contínua para elevar a qualidade do projeto e agilizar o processo de desenvolvimento.
 
 ## Como Contribuir
 
