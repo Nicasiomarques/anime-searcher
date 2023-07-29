@@ -1,18 +1,6 @@
-import { AnimeItem, filtersAvailable } from "../../hooks";
-
-type SortObject = {
-  attr: string;
-  ascending: boolean;
-}
-
-type SortFilterProps = {
-  setSort: React.Dispatch<React.SetStateAction<{
-    attr: string;
-    ascending: boolean;
-  }>>
-  sortBy: (attr: keyof AnimeItem, ascending: boolean) => void;
-  sort: SortObject;
-}
+import { SortFilterProps } from "./sort-filter.type";
+import { filtersAvailable } from "../../hooks";
+import { SelectInput, ButtonToggle } from '..'
 
 export const SortFilter = ({ setSort, sortBy, sort }: SortFilterProps) => {
   const handleFilterChange = (attr: string) => {
@@ -26,21 +14,15 @@ export const SortFilter = ({ setSort, sortBy, sort }: SortFilterProps) => {
   }
 
   return (
-    <div className='sort-filters-wrapper'>
-      <select className="input-field" onChange={event => handleFilterChange(event.target.value)}>
-        <option value="" disabled>Select a filter</option>
-        {filtersAvailable.map(([filterKey, title]) => (
-          <option key={filterKey} value={filterKey}>
-            {title}
-          </option>
-        ))}
-      </select>
-
-      <button
-        className={`btn ${sort.ascending ? 'btn--active' : ''}`}
-        onClick={toggleSort}>
-        {sort.ascending ? 'Ascendente' : 'Descendente'}
-      </button>
+    <div className='flex gap-4 mt-3'>
+      <SelectInput
+        options={filtersAvailable}
+        handleChange={handleFilterChange}
+      />
+      <ButtonToggle
+        isOn={sort.ascending}
+        toggle={toggleSort}
+      />
     </div>
   )
 }

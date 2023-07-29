@@ -1,17 +1,15 @@
 import { memo } from "react"
-import './card.styles.css'
 
 type CardProps = {
-  id: string
   thumb: string
   title: string
 }
 
-export const Card = memo(({ id, thumb, title }: CardProps) => {
+export const Card = memo(({ thumb, title }: CardProps) => {
   return (
-    <article className='card' key={id}>
-      <img className='card__img' src={thumb} alt={title} />
-      <h3 className="card__title">{title}</h3>
+    <article className='group rounded hover:scale-105 cursor-pointer duration-200'>
+      <img className='rounded-md brightness-75 duration-200 hover:brightness-100' src={thumb} alt={title} />
+      <h3 className="text-amber-600 text-sm truncate mt-2 group-hover:text-purple-600">{title}</h3>
     </article>
   )
 })

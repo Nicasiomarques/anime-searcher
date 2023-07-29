@@ -1,4 +1,4 @@
-import { SearchInput, ListAsGrid, PaginationWrapper, SortFilter } from './components';
+import { SearchInput, SectionGrid, PaginationWrapper, SortFilter } from './components';
 import { useAnimePagination } from './hooks/use-animes';
 
 export default function App() {
@@ -16,11 +16,10 @@ export default function App() {
   } = useAnimePagination()
 
   return (
-    <div className="App">
+    <main className="max-w-screen-xl mx-auto px-5">
       <div className="filter-container">
         <SearchInput
           placeholder='Nome do Anime, ova ou filme...'
-          className="input-field"
           onChange={setText}
           value={text}
         />
@@ -31,7 +30,7 @@ export default function App() {
         />
       </div>
 
-      <ListAsGrid
+      <SectionGrid
         animeList={animeList}
         isLoading={isLoading}
       />
@@ -41,6 +40,6 @@ export default function App() {
         offset={offset}
         total={total}
       />
-    </div>
+    </main>
   );
 }

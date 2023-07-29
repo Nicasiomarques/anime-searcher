@@ -1,6 +1,5 @@
 import { PaginationWrapperProps } from "./pagination.type";
 import { Pagination } from "./pagination";
-import './pagination.styles.css'
 
 export const PaginationWrapper = ({
   total,
@@ -10,11 +9,11 @@ export const PaginationWrapper = ({
   if (!total) return null;
 
   return (
-    <div className='pagination-wrapper'>
+    <div className='flex justify-center my-10'>
       <Pagination
-        total={total}
         setOffset={setOffset}
         offset={offset}
+        total={total}
       />
     </div>
   );

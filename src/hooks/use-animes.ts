@@ -10,7 +10,10 @@ export type AnimeItem = {
   realizeDate: string
 }
 
-export const filtersAvailable = [['title', "Nome da obra"], ['realizeDate', 'Data lançamento']] as const
+export const filtersAvailable = [
+  { key: 'title', value: "Nome da obra" },
+  { key: 'realizeDate', value: 'Data lançamento' }
+]
 
 const mapToCardProps = (response: Partial<PaginationData>): AnimeItem[] => {
   const mappedCards = response.data?.map(card => ({
@@ -55,7 +58,7 @@ export const useAnimePagination = (baseURL = BASE_URL) => {
     attr: 'title',
     ascending: true
   })
-  
+
   useEffect(() => {
     fetchData(text, offset)
       .catch(error => {
@@ -63,7 +66,7 @@ export const useAnimePagination = (baseURL = BASE_URL) => {
         console.error(error);
         alert(error.message);
       })
-      setFilteredData([])
+    setFilteredData([])
   }, [text, offset]);
 
   const sortBy = (attr: keyof AnimeItem, ascending: boolean) => {
@@ -81,6 +84,6 @@ export const useAnimePagination = (baseURL = BASE_URL) => {
     offset,
     text,
     setSort,
-    sort, 
+    sort,
   };
 };
