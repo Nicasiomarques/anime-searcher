@@ -11,6 +11,7 @@ export const Pagination = ({ total, offset, setOffset }: PaginationProps) => {
   // calc first and last page numbers to be displayed in the pagination bar
   const firstPage = Math.max(currentPage - MAX_LEFT, 1);
   const lastPage = Math.min(firstPage + MAX_ITEMS - 1, totalPages);
+  
   const onPageChange = (page: number) => () => {
     const newOffset = (page - 1) * LIMIT;
     if (newOffset !== offset) setOffset(newOffset);
@@ -36,6 +37,7 @@ export const Pagination = ({ total, offset, setOffset }: PaginationProps) => {
           label={index}
         />
       )}
+
       <BtnIndicator
         onPageChange={onPageChange(currentPage + 1)}
         disabled={totalPages === currentPage}

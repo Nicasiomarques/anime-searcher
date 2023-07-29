@@ -14,7 +14,7 @@ export const SortFilter = ({ setSort, sortBy, sort }: SortFilterProps) => {
   }
 
   return (
-    <div className='flex gap-4 mt-3'>
+    <div className='flex gap-4'>
       <SelectInput
         options={filtersAvailable}
         handleChange={handleFilterChange}
