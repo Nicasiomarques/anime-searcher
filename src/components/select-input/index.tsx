@@ -10,8 +10,8 @@ export const SelectInput: React.FC<SelectInputProps> = ({ options, handleChange 
       onChange={event => handleChange(event.target.value)}
     >
       <option value='' disabled>Select a filter</option>
-      {options.map(filter => (
-        <option {...filter}>{filter.value}</option>
+      {options.map(({ key, value }) => (
+        <option key={key} value={key}>{value}</option>
       ))}
     </select>
   );
