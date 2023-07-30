@@ -1,5 +1,4 @@
-import { SortFilterProps } from './sort-filter.type'
-import { filtersAvailable } from '../../hooks'
+import { SortFilterProps, filtersAvailable } from './sort-filter.type'
 import { SelectInput, ButtonToggle } from '..'
 
 export const SortFilter = ({ setSort, sortBy, sort }: SortFilterProps) => {

@@ -20,3 +20,9 @@ export type SortFilterProps = {
   sortBy: (attr: keyof AnimeItem, ascending: boolean) => void
   sort: SortObject
 }
+
+export const filtersAvailable = [
+  { key: 'title', value: "Nome da obra" },
+  { key: 'realizeDate', value: 'Data lançamento' }
+]
+
