@@ -1,12 +1,12 @@
-import { SortFilterProps } from "./sort-filter.type";
-import { filtersAvailable } from "../../hooks";
+import { SortFilterProps } from './sort-filter.type'
+import { filtersAvailable } from '../../hooks'
 import { SelectInput, ButtonToggle } from '..'
 
 export const SortFilter = ({ setSort, sortBy, sort }: SortFilterProps) => {
   const handleFilterChange = (attr: string) => {
-    setSort(prev => ({ ...prev, attr }));
+    setSort(prev => ({ ...prev, attr }))
     sortBy(sort.attr as any, sort.ascending)
-  };
+  }
 
   const toggleSort = () => {
     setSort(prev => ({ ...prev, ascending: !prev.ascending }))
@@ -14,15 +14,9 @@ export const SortFilter = ({ setSort, sortBy, sort }: SortFilterProps) => {
   }
 
   return (
-    <div className='flex gap-4'>
-      <SelectInput
-        options={filtersAvailable}
-        handleChange={handleFilterChange}
-      />
-      <ButtonToggle
-        isOn={sort.ascending}
-        toggle={toggleSort}
-      />
+    <div className="flex gap-4">
+      <SelectInput options={filtersAvailable} handleChange={handleFilterChange} />
+      <ButtonToggle isOn={sort.ascending} toggle={toggleSort} />
     </div>
   )
 }

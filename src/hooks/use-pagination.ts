@@ -1,14 +1,14 @@
 import qs from "qs";
 import { useRef, useState } from "react";
 import { PaginationData } from "../types/animes-response-shape";
-import { fetchWithAbort } from "../infra/remote/http-client";
+import { httpClient } from "../infra/remote/http-client";
 
 export const LIMIT = 20
 
 export const usePagination = (baseURL: string) => {
   const [data, setData] = useState<Partial<PaginationData>>({});
   const abortControllerRef = useRef<AbortController>(new AbortController());
-  const cacheRef = useRef<Record<string, PaginationData>>({});
+  const cacheRef = useRef<any | null>(null);
   const [isLoading, setIsLoading] = useState(false)
   const fetchData = async (text: string, offset: number) => {
     const query = {
@@ -18,9 +18,7 @@ export const usePagination = (baseURL: string) => {
 
     const fetchOptions = { signal: abortControllerRef.current.signal };
     const url = `${baseURL}?${qs.stringify(query)}`;
-
-    const newData = await fetchWithAbort(url, fetchOptions.signal);
-    // Cache the fetched data
+    const newData = await httpClient<PaginationData>(url, fetchOptions);
     cacheRef.current[`${text}-${offset}`] = newData;
     return newData || null
   };
