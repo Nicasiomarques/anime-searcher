@@ -2,6 +2,7 @@ export interface HttpClientOptions {
   signal?: AbortSignal
   timeout?: number
   headers?: HeadersInit
+  query?: { [key: string]: any }
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS' | 'HEAD'
   body?: BodyInit
 }

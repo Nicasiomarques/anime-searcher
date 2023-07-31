@@ -1,3 +1,4 @@
+import { qs } from '../../helpers/query-string-build'
 import { HttpClientOptions, HttpResponse } from './http-contracts'
 import { createAbortController, handleErrorResponse } from './http-utils'
 
@@ -17,6 +18,7 @@ export const httpClient = async <T>(url: string, options: HttpClientOptions = {}
     ? setTimeout(() => controller?.abort(), options.timeout)
     : undefined
 
+  url = options?.query ? `${url}?${qs(options?.query)}` : url
   const response = await fetch(url, requestOptions)
   
   clearTimeout(abortTimeout)
