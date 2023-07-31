@@ -22,7 +22,6 @@ export interface AnimeData {
 export interface AnimeAttributes {
   createdAt: string
   updatedAt: string
-  slug: string
   synopsis: string
   description: string
   coverImageTopOffset: number
@@ -85,15 +84,3 @@ export interface ImageData {
   }
 }
 
-export interface AnimeRelationships {
-  genres: RelationshipLinks
-  categories: RelationshipLinks
-  // Add other relationships here based on your specific use case
-}
-
-export interface RelationshipLinks {
-  links: {
-    self: string
-    related: string
-  }
-}
