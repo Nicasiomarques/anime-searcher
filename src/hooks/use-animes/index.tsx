@@ -21,7 +21,7 @@ export const AnimeProvider: React.FC<any> = ({ children }) => {
   useEffect(() => {
     setFilteredData([])
     setSort({ attr: 'title', ascending: true })
-  }, [offset])
+  }, [offset, text])
 
   const sortBy = (attr: keyof AnimeItem, asc: boolean): void => {
     setFilteredData(sortByAttr(data?.animeList || [], attr, asc))
