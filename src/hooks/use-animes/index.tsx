@@ -18,8 +18,9 @@ export const AnimeProvider: React.FC<any> = ({ children }) => {
     staleTime: getTimeIn(2, 'min'),
   })
 
-  const sortBy = (attr: keyof AnimeItem, asc: boolean): void =>
+  const sortBy = (attr: keyof AnimeItem, asc: boolean): void => {
     setFilteredData(sortByAttr(data?.animeList || [], attr, asc))
+  }
 
   return (
     <AnimeContext.Provider
@@ -35,8 +36,8 @@ export const AnimeProvider: React.FC<any> = ({ children }) => {
         setFilteredData,
         isLoading,
         data: {
+          ...data,
           animeList: filteredData.length ? filteredData : data?.animeList,
-          ...data
         }
       }}
     >
