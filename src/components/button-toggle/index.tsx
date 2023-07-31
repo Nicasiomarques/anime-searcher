@@ -1,4 +1,4 @@
-import classnames from 'classnames'
+import { classnames } from "../../helpers/classname"
 
 interface ButtonPropsToggle {
   isOn: boolean
