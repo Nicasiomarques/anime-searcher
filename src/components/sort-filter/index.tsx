@@ -1,7 +1,9 @@
-import { SortFilterProps, filtersAvailable } from './sort-filter.type'
+import { filtersAvailable } from './sort-filter.type'
 import { SelectInput, ButtonToggle } from '..'
+import { useAnime } from '../../hooks'
 
-export const SortFilter = ({ setSort, sortBy, sort }: SortFilterProps) => {
+export const SortFilter = () => {
+  const { setSort, sortBy, sort } = useAnime()
   const handleFilterChange = (attr: string) => {
     setSort(prev => ({ ...prev, attr }))
     sortBy(sort.attr as any, sort.ascending)

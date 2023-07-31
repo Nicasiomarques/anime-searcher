@@ -1,19 +1,19 @@
 import { MAX_ITEMS, MAX_LEFT, PaginationProps } from './pagination.type'
-import { LIMIT } from '../../hooks/use-pagination'
 import { BtnIndicator } from './btn-indicator'
 import { BtnItem } from './btn-item'
+import { PAGINATION_LIMIT } from '../../constans/enviroment'
 
 export const Pagination = ({ total, offset, setOffset }: PaginationProps) => {
   // calc current page based on the offset and limit
-  const currentPage = Math.ceil(offset / LIMIT) + 1
+  const currentPage = Math.ceil(offset / PAGINATION_LIMIT) + 1
   // calc total number of pages
-  const totalPages = Math.ceil(total / LIMIT)
+  const totalPages = Math.ceil(total / PAGINATION_LIMIT)
   // calc first and last page numbers to be displayed in the pagination bar
   const firstPage = Math.max(currentPage - MAX_LEFT, 1)
   const lastPage = Math.min(firstPage + MAX_ITEMS - 1, totalPages)
 
   const onPageChange = (page: number) => () => {
-    const newOffset = (page - 1) * LIMIT
+    const newOffset = (page - 1) * PAGINATION_LIMIT
     if (newOffset !== offset) setOffset(newOffset)
   }
 
@@ -29,7 +29,12 @@ export const Pagination = ({ total, offset, setOffset }: PaginationProps) => {
       />
 
       {genArrNumOfPages().map(index => (
-        <BtnItem isOn={index === currentPage} onPageChange={onPageChange(index)} label={index} />
+        <BtnItem
+          isOn={index === currentPage}
+          onPageChange={onPageChange(index)}
+          label={index} 
+          key={index}
+        />
       ))}
 
       <BtnIndicator
