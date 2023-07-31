@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { sortByAttr } from '../../helpers/sort-collections'
 import { AnimeItem } from '../../api/anime/anime.types'
@@ -17,6 +17,11 @@ export const AnimeProvider: React.FC<any> = ({ children }) => {
     queryFn: async () => await getAnimeList(text, offset),
     staleTime: getTimeIn(2, 'min'),
   })
+
+  useEffect(() => {
+    setFilteredData([])
+    setSort({ attr: 'title', ascending: true })
+  }, [offset])
 
   const sortBy = (attr: keyof AnimeItem, asc: boolean): void => {
     setFilteredData(sortByAttr(data?.animeList || [], attr, asc))
