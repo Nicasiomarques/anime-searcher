@@ -1,6 +1,4 @@
 import { MAX_ITEMS, MAX_LEFT, PaginationProps } from './pagination.type'
-import { BtnIndicator } from './btn-indicator'
-import { BtnItem } from './btn-item'
 import { PAGINATION_LIMIT } from '../../constans/enviroment'
 
 export const Pagination = ({ total, offset, setOffset }: PaginationProps) => {
@@ -21,26 +19,28 @@ export const Pagination = ({ total, offset, setOffset }: PaginationProps) => {
     Array.from({ length: lastPage - firstPage + 1 }, (_, index) => firstPage + index)
 
   return (
-    <div className="flex items-center gap-4">
-      <BtnIndicator
-        onPageChange={onPageChange(currentPage - 1)}
+    <div className="join">
+      <button
         disabled={currentPage === 1}
-        label="Anterior"
+        onClick={onPageChange(currentPage - 1)}
+        className="join-item btn btn-outline btn-primary text-white disabled:bg-indigo-300 disabled:text-gray-200"
+        children="Anterior"
       />
 
       {genArrNumOfPages().map(index => (
-        <BtnItem
-          isOn={index === currentPage}
-          onPageChange={onPageChange(index)}
-          label={index} 
-          key={index}
+        <button
+          className="join-item btn btn-primary text-white disabled:bg-indigo-500 disabled:text-gray-100"
+          disabled={index === currentPage}
+          onClick={onPageChange(index)}
+          children={index}
         />
       ))}
-
-      <BtnIndicator
-        onPageChange={onPageChange(currentPage + 1)}
+      
+      <button
         disabled={totalPages === currentPage}
-        label="Proximo"
+        onClick={onPageChange(currentPage + 1)}
+        className="join-item btn btn-outline btn-primary text-white disabled:bg-indigo-300 disabled:text-gray-200"
+        children="Proximo"
       />
     </div>
   )
