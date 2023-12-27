@@ -6,16 +6,12 @@ interface SelectInputProps {
 export const SelectInput: React.FC<SelectInputProps> = ({ options, handleChange }) => {
   return (
     <select
-      className="bg-white rounded px-4 py-3 w-full shadow-sm shadow-slate-300 focus:shadow-md focus:-translate-y-1 outline-none transition-all duration-200"
       onChange={event => handleChange(event.target.value)}
+      className="select select-bordered w-full"
     >
-      <option value="" disabled>
-        Select a filter
-      </option>
+      <option value="" disabled>Select a filter</option>
       {options.map(({ key, value }) => (
-        <option key={key} value={key}>
-          {value}
-        </option>
+        <option key={key} value={key}>{value}</option>
       ))}
     </select>
   )
