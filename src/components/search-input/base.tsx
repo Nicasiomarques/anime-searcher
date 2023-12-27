@@ -1,18 +1,22 @@
 import { HTMLProps } from 'react'
-import { twMerge } from '../../helpers/tailwind-merge'
 
-export type InputFieldProps = HTMLProps<HTMLInputElement> & { label?: string }
+export type InputFieldProps = HTMLProps<HTMLInputElement> &
+  Partial<{ label: string; error: 'string' }>
 
-export const InputField: React.FC<InputFieldProps> = ({ label, ...rest }) => (
-  <div className="flex flex-col gap-2">
-    {label && <label className="font-bold text-base capitalize text-gray-600">{label}</label>}
-    <input
-      type="text"
-      className={twMerge(
-        'bg-white rounded px-4 py-3 w-full shadow-sm shadow-slate-300 focus:shadow-md focus:-translate-y-1 outline-none transition-all duration-200',
-        rest.className
-      )}
-      {...rest}
-    />
-  </div>
+export const InputField: React.FC<InputFieldProps> = ({ label, error, ...rest }) => (
+  <label className="form-control w-full">
+    {label && (
+      <div className="label">
+        <span className="label-text">What is your name?</span>
+      </div>
+    )}
+
+    <input type="text" className="input input-bordered" {...rest} />
+
+    {error && (
+      <div className="label">
+        <span className="label-text-alt">{error}</span>
+      </div>
+    )}
+  </label>
 )
